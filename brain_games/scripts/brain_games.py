@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Module contain entry points."""
+"""Brain_games entrypoint."""
 
 from brain_games.cli import welcome_user
 
