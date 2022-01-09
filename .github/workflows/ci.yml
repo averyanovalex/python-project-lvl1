@@ -1,11 +1,6 @@
 name: Project CI
 on: push
 jobs:
-  my-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: my-step
-        run: echo "Hello World!"
   build:
     runs-on: ubuntu-latest
     strategy:
