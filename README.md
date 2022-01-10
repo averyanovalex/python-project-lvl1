@@ -2,3 +2,7 @@
 [![Actions Status](https://github.com/averyanovalex/python-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/averyanovalex/python-project-lvl1/actions/workflows/hexlet-check.yml)
 [![example workflow](https://github.com/averyanovalex/python-project-lvl1/actions/workflows/ci.yml/badge.svg)](https://github.com/averyanovalex/python-project-lvl1/actions/workflows/ci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
+# Training project "Brain games" on hexlet.io
+## 1.Brain-even:
+[![asciicast](https://asciinema.org/a/KjQxOewHyix2Vcig6bBwVZjlR.svg)](https://asciinema.org/a/KjQxOewHyix2Vcig6bBwVZjlR)
