@@ -1,13 +1,12 @@
-
 """Even game."""
 
-from random import randint
-
 from brain_games.cli import answer_yes_no, print_text, welcome_user
-
-MIN_NUMBER = 1
-MAX_NUMBER = 100
-TRY_COUNT = 3
+from brain_games.games.common import (
+    ROUNDS,
+    check_answer,
+    congratulate_user,
+    random_int,
+)
 
 
 def brain_even():
@@ -15,19 +14,14 @@ def brain_even():
     name = welcome_user()
     print_text('Answer "yes" if the number is even, otherwise answer "no".')
 
-    for _ in range(TRY_COUNT):
-        number = randint(MIN_NUMBER, MAX_NUMBER)
+    for _ in range(ROUNDS):
+        number = random_int()
         right_answer = 'yes' if number % 2 == 0 else 'no'
 
-        print_text('Question: {number}'.format(number=number))
-        answer = answer_yes_no()
+        answer = answer_yes_no('Question: {number}'.format(number=number))
+        is_correct = check_answer(answer, right_answer, name)
 
-        if answer == right_answer:
-            print_text('Correct!')
-        else:
-            template = '"{s1}" is wrong answer ;(. Correct answer was "{s2}".'
-            print_text(template.format(s1=answer, s2=right_answer))
-            print_text("Let's try again, {s1}".format(s1=name))
+        if not is_correct:
             return
 
-    print_text('Congratilations, {name}!'.format(name=name))
+    congratulate_user(name)
