@@ -5,4 +5,4 @@
 
 # Training project "Brain games" on hexlet.io
 ## 1.Brain-even:
-[![asciicast](https://asciinema.org/a/KjQxOewHyix2Vcig6bBwVZjlR.svg)](https://asciinema.org/a/KjQxOewHyix2Vcig6bBwVZjlR)
+[![asciicast](https://asciinema.org/a/9yknVkJhrsdBtUpDq9V5U3P7l.svg)](https://asciinema.org/a/9yknVkJhrsdBtUpDq9V5U3P7l)
