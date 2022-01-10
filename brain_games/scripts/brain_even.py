@@ -2,11 +2,11 @@
 """Game 'Even'  entrypoint."""
 
 from brain_games.games.brain_even import brain_even
-from brain_games.cli import welcome_user
+
 
 def main():
     """Entrypoint function."""
-    welcome_user()
+    print('Welcome to the Brain Games!')
     brain_even()
 
 
