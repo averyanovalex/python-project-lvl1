@@ -6,3 +6,6 @@
 # Training project "Brain games" on hexlet.io
 ## 1.Brain-even:
 [![asciicast](https://asciinema.org/a/9yknVkJhrsdBtUpDq9V5U3P7l.svg)](https://asciinema.org/a/9yknVkJhrsdBtUpDq9V5U3P7l)
+
+## 2.Brain-calc:
+[![asciicast](https://asciinema.org/a/iP7Ail7RZzsVRLFVoq8G4lsfP.svg)](https://asciinema.org/a/iP7Ail7RZzsVRLFVoq8G4lsfP)
