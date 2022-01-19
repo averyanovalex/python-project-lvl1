@@ -51,3 +51,23 @@ def congratulate_user(user_name: str):
         user_name: user's name
     """
     print_text('Congratilations, {name}!'.format(name=user_name))
+
+
+def calc_gcd(num1: int, num2: int):
+    """
+    Calulate greatest common devizor.
+
+    Args:
+        num1: first number
+        num2: second number
+
+    Returns:
+        int
+    """
+    min_num = min(num1, num2)
+    gcd = 1
+    for candidate in range(2, min_num + 1):
+        if num1 % candidate == 0 and num2 % candidate == 0:
+            gcd = candidate
+
+    return gcd
