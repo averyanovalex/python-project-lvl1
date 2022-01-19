@@ -50,7 +50,7 @@ def congratulate_user(user_name: str):
     Args:
         user_name: user's name
     """
-    print_text('Congratilations, {name}!'.format(name=user_name))
+    print_text('Congratulations, {name}!'.format(name=user_name))
 
 
 def calc_gcd(num1: int, num2: int):
