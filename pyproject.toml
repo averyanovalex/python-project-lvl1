@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "Training project "Brain games" on hexlet.io"
 authors = ["Alexey Averyanov <averyanovalexey@gmail.com>"]
+classifiers =
+    Programming Language :: Python :: 3.8
+    License :: OSI Approved :: MIT License
+    Operating System :: OS Independent
 packages = [
   { include = "brain_games"},
 ]
