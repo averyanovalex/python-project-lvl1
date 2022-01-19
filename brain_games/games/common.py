@@ -39,7 +39,7 @@ def check_answer(answer: str, right_answer: str, user_name: str):
 
     template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
     print_text(template.format(s1=answer, s2=right_answer))
-    print_text("Let's try again, {s1}".format(s1=user_name))
+    print_text("Let's try again, {s1}!".format(s1=user_name))
     return False
 
 
