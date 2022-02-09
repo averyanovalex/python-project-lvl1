@@ -45,7 +45,7 @@ def answer_yes_no(question: str) -> str:
     return answer
 
 
-def answer_int(question: str) -> int:
+def answer_int(question: str) -> str:
     """
     Ask question and return user's answer.
 
@@ -55,7 +55,7 @@ def answer_int(question: str) -> int:
         question: question for user
 
     Returns:
-        int
+        str
     """
     print_text(question)
-    return prompt.integer('Your answer: ', empty=False)
+    return str(prompt.integer('Your answer: ', empty=False))

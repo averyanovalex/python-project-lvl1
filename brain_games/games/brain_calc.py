@@ -106,7 +106,7 @@ def brain_calc() -> None:
     for _ in range(ROUNDS):
         question, right_answer = prepare_question_and_answer()
 
-        answer = str(answer_int(question))
+        answer = answer_int(question)
         is_correct = check_answer(answer, right_answer, name)
 
         if not is_correct:
