@@ -11,7 +11,7 @@ from brain_games.games.common import (
 )
 
 
-def add(num1: int, num2: int):
+def add(num1: int, num2: int) -> int:
     """
     Calculate sum.
 
@@ -25,7 +25,7 @@ def add(num1: int, num2: int):
     return num1 + num2
 
 
-def diff(num1: int, num2: int):
+def diff(num1: int, num2: int) -> int:
     """
     Calculate difference.
 
@@ -39,7 +39,7 @@ def diff(num1: int, num2: int):
     return num1 - num2
 
 
-def multiply(num1: int, num2: int):
+def multiply(num1: int, num2: int) -> int:
     """
     Calculate multiplication.
 
@@ -53,7 +53,7 @@ def multiply(num1: int, num2: int):
     return num1 * num2
 
 
-def random_math_operation():
+def random_math_operation() -> tuple:
     """
     Generate random math operation.
 
@@ -64,7 +64,7 @@ def random_math_operation():
     return choice(math_ops)
 
 
-def question_as_str(substr1, substr2, substr3):
+def question_as_str(substr1, substr2, substr3) -> str:
     """
     Compile question for user as string.
 
@@ -79,7 +79,7 @@ def question_as_str(substr1, substr2, substr3):
     return 'Question: {s1} {s2} {s3}'.format(s1=substr1, s2=substr2, s3=substr3)
 
 
-def prepare_question_and_answer():
+def prepare_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -98,7 +98,7 @@ def prepare_question_and_answer():
     return question_as_str(num1, mark, num2), right_answer
 
 
-def brain_calc():
+def brain_calc() -> None:
     """Implementaion of game's logic."""
     name = welcome_user()
     print_text('What is the result of the expression?')

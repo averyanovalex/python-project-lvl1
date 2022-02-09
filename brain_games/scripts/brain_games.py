@@ -4,7 +4,7 @@
 from brain_games.cli import welcome_user
 
 
-def main():
+def main() -> None:
     """Entrypoint function."""
     welcome_user()
 

@@ -4,7 +4,7 @@
 from brain_games.games.brain_progression import brain_progression
 
 
-def main():
+def main() -> None:
     """Entrypoint function."""
     brain_progression()
 

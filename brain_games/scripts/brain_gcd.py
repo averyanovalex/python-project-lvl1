@@ -4,7 +4,7 @@
 from brain_games.games.brain_gcd import brain_gcd
 
 
-def main():
+def main() -> None:
     """Entrypoint function."""
     brain_gcd()
 

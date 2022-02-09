@@ -10,7 +10,7 @@ from brain_games.games.common import (
 )
 
 
-def is_prime(number: int):
+def is_prime(number: int) -> bool:
     """
     Calculate number is prime or not.
 
@@ -31,7 +31,7 @@ def is_prime(number: int):
     return True
 
 
-def prepare_question_and_answer():
+def prepare_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -49,7 +49,7 @@ def prepare_question_and_answer():
     return question, right_answer
 
 
-def brain_prime():
+def brain_prime() -> None:
     """Implementaion of game's logic."""
     name = welcome_user()
     print_text('Answer "yes" if given number is prime. Otherwise answer "no".')

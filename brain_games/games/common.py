@@ -9,7 +9,7 @@ RANDOM_NUMBER_MAX = 100
 ROUNDS = 3
 
 
-def random_int():
+def random_int() -> int:
     """Return random integer.
 
     Returns:
@@ -18,7 +18,7 @@ def random_int():
     return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
 
 
-def check_answer(answer: str, right_answer: str, user_name: str):
+def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
     """
     Check correct users's answer or not.
 
@@ -43,7 +43,7 @@ def check_answer(answer: str, right_answer: str, user_name: str):
     return False
 
 
-def congratulate_user(user_name: str):
+def congratulate_user(user_name: str) -> None:
     """
     Print to user congratulations.
 
@@ -53,7 +53,7 @@ def congratulate_user(user_name: str):
     print_text('Congratulations, {name}!'.format(name=user_name))
 
 
-def calc_gcd(number1: int, number2: int):
+def calc_gcd(number1: int, number2: int) -> int:
     """
     Calulate greatest common devizor.
 

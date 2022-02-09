@@ -10,7 +10,7 @@ from brain_games.games.common import (
 )
 
 
-def prepare_question_and_answer():
+def prepare_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -29,7 +29,7 @@ def prepare_question_and_answer():
     return question, right_answer
 
 
-def brain_gcd():
+def brain_gcd() -> None:
     """Implementaion of game's logic."""
     name = welcome_user()
     print_text('Find the greatest common divisor of given numbers.')

@@ -9,7 +9,7 @@ from brain_games.games.common import (
 )
 
 
-def brain_even():
+def brain_even() -> None:
     """Implementaion of game's logic."""
     name = welcome_user()
     print_text('Answer "yes" if the number is even, otherwise answer "no".')

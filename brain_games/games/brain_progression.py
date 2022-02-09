@@ -11,7 +11,7 @@ PROGRESSION_START_ELEMENT_MAX = 9
 PROGRESSION_ITERATOR_MAX = 5
 
 
-def generate_progression():
+def generate_progression() -> list:
     """
     Generate arithmetic progression.
 
@@ -26,7 +26,7 @@ def generate_progression():
     return list(range(start_item, last_element + 1, iterator))
 
 
-def choice_missed_item(progression: list):
+def choice_missed_item(progression: list) -> int:
     """
     Choice missed item in progression and return index.
 
@@ -39,7 +39,7 @@ def choice_missed_item(progression: list):
     return randint(0, len(progression) - 1)
 
 
-def question_as_str(progression: list, missed_item: int):
+def question_as_str(progression: list, missed_item: int) -> str:
     """
     Build question as string from progression (list) and missed item.
 
@@ -58,7 +58,7 @@ def question_as_str(progression: list, missed_item: int):
     return 'Question: {progr}'.format(progr=progr_str[:-1])
 
 
-def prepare_question_and_answer():
+def prepare_question_and_answer() -> tuple:
     """
     Prepare question and correct answer as strings.
 
@@ -76,7 +76,7 @@ def prepare_question_and_answer():
     return question, right_answer
 
 
-def brain_progression():
+def brain_progression() -> None:
     """Implementaion of game's logic."""
     name = welcome_user()
     print_text('What number is missing in the progression?')

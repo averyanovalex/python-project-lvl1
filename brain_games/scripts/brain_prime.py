@@ -4,7 +4,7 @@
 from brain_games.games.brain_prime import brain_prime
 
 
-def main():
+def main() -> None:
     """Entrypoint function."""
     brain_prime()
 

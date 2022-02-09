@@ -3,7 +3,7 @@
 import prompt
 
 
-def welcome_user():
+def welcome_user() -> str:
     """
     Ask and return user name.
 
@@ -16,7 +16,7 @@ def welcome_user():
     return name
 
 
-def print_text(text: str):
+def print_text(text: str) -> None:
     """
     Print text into command line interface.
 
@@ -26,7 +26,7 @@ def print_text(text: str):
     print(text)
 
 
-def answer_yes_no(question: str):
+def answer_yes_no(question: str) -> str:
     """
     Ask question and return user's answer.
 
@@ -45,7 +45,7 @@ def answer_yes_no(question: str):
     return answer
 
 
-def answer_int(question: str):
+def answer_int(question: str) -> int:
     """
     Ask question and return user's answer.
 
