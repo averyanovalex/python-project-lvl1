@@ -11,6 +11,33 @@ PROGRESSION_START_ELEMENT_MAX = 9
 PROGRESSION_ITERATOR_MAX = 5
 
 
+def brain_progression() -> None:
+    """Implementaion of game's logic."""
+    welcome_message = 'What number is missing in the progression?'
+    build_question = prepare_question_and_answer
+    ask_question = answer_int
+
+    run_game(welcome_message, build_question, ask_question)
+
+
+def prepare_question_and_answer() -> tuple:
+    """
+    Prepare question and correct answer as strings.
+
+    Generate progression, choice missed item and generate question and answer.
+
+    Returns:
+        str, str
+    """
+    progression = generate_progression()
+    missed_item = choice_missed_item(progression)
+
+    question = question_as_str(progression, missed_item)
+    right_answer = str(progression[missed_item])
+
+    return question, right_answer
+
+
 def generate_progression() -> list:
     """
     Generate arithmetic progression.
@@ -56,30 +83,3 @@ def question_as_str(progression: list, missed_item: int) -> str:
         progr_str += '{0} '.format(item_str)
 
     return 'Question: {progr}'.format(progr=progr_str[:-1])
-
-
-def prepare_question_and_answer() -> tuple:
-    """
-    Prepare question and correct answer as strings.
-
-    Generate progression, choice missed item and generate question and answer.
-
-    Returns:
-        str, str
-    """
-    progression = generate_progression()
-    missed_item = choice_missed_item(progression)
-
-    question = question_as_str(progression, missed_item)
-    right_answer = str(progression[missed_item])
-
-    return question, right_answer
-
-
-def brain_progression() -> None:
-    """Implementaion of game's logic."""
-    welcome_message = 'What number is missing in the progression?'
-    build_question = prepare_question_and_answer
-    ask_question = answer_int
-
-    run_game(welcome_message, build_question, ask_question)
