@@ -11,46 +11,46 @@ from brain_games.games.common import (
 )
 
 
-def add(num1: int, num2: int) -> int:
+def add(number1: int, number2: int) -> int:
     """
     Calculate sum.
 
     Args:
-        num1: first number
-        num2: second number
+        number1: first number
+        number2: second number
 
     Returns:
         int
     """
-    return num1 + num2
+    return number1 + number2
 
 
-def diff(num1: int, num2: int) -> int:
+def diff(number1: int, number2: int) -> int:
     """
     Calculate difference.
 
     Args:
-        num1: first number
-        num2: second number
+        number1: first number
+        number2: second number
 
     Returns:
         int
     """
-    return num1 - num2
+    return number1 - number2
 
 
-def multiply(num1: int, num2: int) -> int:
+def multiply(number1: int, number2: int) -> int:
     """
     Calculate multiplication.
 
     Args:
-        num1: first number
-        num2: second number
+        number1: first number
+        number2: second number
 
     Returns:
         int
     """
-    return num1 * num2
+    return number1 * number2
 
 
 def random_math_operation() -> tuple:
