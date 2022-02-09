@@ -1,5 +1,7 @@
 """Common functions and settings for all games."""
 
+from math import floor
+
 from random import randint
 
 from brain_games.cli import print_text
@@ -65,8 +67,9 @@ def calc_gcd(num1: int, num2: int):
         int
     """
     min_num = min(num1, num2)
+    max_candidate = int(floor(min_num / 2)) + 1
     gcd = 1
-    for candidate in range(2, min_num + 1):
+    for candidate in range(2,  max_candidate):
         if num1 % candidate == 0 and num2 % candidate == 0:
             gcd = candidate
 
