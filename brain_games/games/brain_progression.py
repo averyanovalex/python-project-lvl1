@@ -2,8 +2,8 @@
 
 from random import randint
 
-from brain_games.cli import answer_int, print_text, welcome_user
-from brain_games.games.common import ROUNDS, check_answer, congratulate_user
+from brain_games.cli import answer_int
+from brain_games.games.common import run_game
 
 PROGRESSION_LEN_MIN = 5
 PROGRESSION_LEN_MAX = 10
@@ -78,16 +78,8 @@ def prepare_question_and_answer() -> tuple:
 
 def brain_progression() -> None:
     """Implementaion of game's logic."""
-    name = welcome_user()
-    print_text('What number is missing in the progression?')
+    welcome_message = 'What number is missing in the progression?'
+    build_question = prepare_question_and_answer
+    ask_question = answer_int
 
-    for _ in range(ROUNDS):
-        question, right_answer = prepare_question_and_answer()
-
-        answer = str(answer_int(question))
-        is_correct = check_answer(answer, right_answer, name)
-
-        if not is_correct:
-            return
-
-    congratulate_user(name)
+    run_game(welcome_message, build_question, ask_question)

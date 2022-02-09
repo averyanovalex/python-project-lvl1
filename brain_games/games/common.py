@@ -1,21 +1,39 @@
 """Common functions and settings for all games."""
 
 from random import randint
+from typing import Callable
 
-from brain_games.cli import print_text
+from brain_games.cli import print_text, welcome_user
 
 RANDOM_NUMBER_MIN = 1
 RANDOM_NUMBER_MAX = 100
 ROUNDS = 3
 
 
-def random_int() -> int:
-    """Return random integer.
-
-    Returns:
-        int
+def run_game(welcome_message: str, build_question: Callable, ask_question: Callable) -> None:
     """
-    return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
+    Engine for all games.
+
+    This function implements common logic for any game.
+
+    Args:
+        welcome_message: message is displayed at the beginning of the game
+        build_question: function to prepare question and right answer
+        ask_question: function to ask question to user
+    """
+    name = welcome_user()
+    print_text(welcome_message)
+
+    for _ in range(ROUNDS):
+        question, right_answer = build_question()
+
+        answer = ask_question(question)
+        is_correct = check_answer(answer, right_answer, name)
+
+        if not is_correct:
+            return
+
+    congratulate_user(name)
 
 
 def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
@@ -72,3 +90,12 @@ def calc_gcd(number1: int, number2: int) -> int:
             gcd = candidate
 
     return gcd
+
+
+def random_int() -> int:
+    """Return random integer.
+
+    Returns:
+        int
+    """
+    return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
