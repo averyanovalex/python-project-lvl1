@@ -2,13 +2,47 @@
 
 from random import choice
 
-from brain_games.cli import answer_int, print_text, welcome_user
-from brain_games.games.common import (
-    ROUNDS,
-    check_answer,
-    congratulate_user,
-    random_int,
-)
+from brain_games.cli import answer_int
+from brain_games.games.common import random_int, run_game
+
+
+def brain_calc() -> None:
+    """Implementaion of game's logic."""
+    welcome_message = 'What is the result of the expression?'
+    build_question = prepare_question_and_answer
+    ask_question = answer_int
+
+    run_game(welcome_message, build_question, ask_question)
+
+
+def prepare_question_and_answer() -> tuple:
+    """
+    Prepare question and correct answer for user.
+
+    Generate 2 numbers , math operation, calculate answer.
+    Prepare question and correct answer as strings.
+
+    Returns:
+        str, str
+    """
+    num1 = random_int()
+    num2 = random_int()
+    mark, func = random_math_operation()
+
+    right_answer = str(func(num1, num2))
+
+    return question_as_str(num1, mark, num2), right_answer
+
+
+def random_math_operation() -> tuple:
+    """
+    Generate random math operation.
+
+    Returns:
+        str, def
+    """
+    math_ops = [('+', add), ('-', diff), ('*', multiply)]
+    return choice(math_ops)
 
 
 def add(number1: int, number2: int) -> int:
@@ -53,17 +87,6 @@ def multiply(number1: int, number2: int) -> int:
     return number1 * number2
 
 
-def random_math_operation() -> tuple:
-    """
-    Generate random math operation.
-
-    Returns:
-        str, def
-    """
-    math_ops = [('+', add), ('-', diff), ('*', multiply)]
-    return choice(math_ops)
-
-
 def question_as_str(substr1, substr2, substr3) -> str:
     """
     Compile question for user as string.
@@ -77,39 +100,3 @@ def question_as_str(substr1, substr2, substr3) -> str:
         str
     """
     return 'Question: {s1} {s2} {s3}'.format(s1=substr1, s2=substr2, s3=substr3)
-
-
-def prepare_question_and_answer() -> tuple:
-    """
-    Prepare question and correct answer for user.
-
-    Generate 2 numbers , math operation, calculate answer.
-    Prepare question and correct answer as strings.
-
-    Returns:
-        str, str
-    """
-    num1 = random_int()
-    num2 = random_int()
-    mark, func = random_math_operation()
-
-    right_answer = str(func(num1, num2))
-
-    return question_as_str(num1, mark, num2), right_answer
-
-
-def brain_calc() -> None:
-    """Implementaion of game's logic."""
-    name = welcome_user()
-    print_text('What is the result of the expression?')
-
-    for _ in range(ROUNDS):
-        question, right_answer = prepare_question_and_answer()
-
-        answer = answer_int(question)
-        is_correct = check_answer(answer, right_answer, name)
-
-        if not is_correct:
-            return
-
-    congratulate_user(name)
