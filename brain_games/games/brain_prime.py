@@ -44,7 +44,7 @@ def is_prime(number: int) -> bool:
     if number in {1, 2}:
         return True
 
-    for candidate in range(2, number - 1):
+    for candidate in range(2, number):
         gcd = calc_gcd(number, candidate)
         if gcd > 1:
             return False
