@@ -83,9 +83,8 @@ def calc_gcd(number1: int, number2: int) -> int:
         int
     """
     min_num = min(number1, number2)
-    max_candidate = min_num // 2 + 1
     gcd = 1
-    for candidate in range(2, max_candidate):
+    for candidate in range(2, min_num):
         if number1 % candidate == 0 and number2 % candidate == 0:
             gcd = candidate
 
