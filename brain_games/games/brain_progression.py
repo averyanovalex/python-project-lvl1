@@ -13,11 +13,11 @@ PROGRESSION_ITERATOR_MAX = 5
 
 def brain_progression() -> None:
     """Implementaion of game's logic."""
-    welcome_message = 'What number is missing in the progression?'
+    intro_msg = 'What number is missing in the progression?'
     build_question = prepare_question_and_answer
     ask_question = answer_int
 
-    run_game(welcome_message, build_question, ask_question)
+    run_game(intro_msg, build_question, ask_question)
 
 
 def prepare_question_and_answer() -> tuple:

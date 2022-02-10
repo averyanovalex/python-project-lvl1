@@ -8,11 +8,11 @@ from brain_games.games.common import random_int, run_game
 
 def brain_calc() -> None:
     """Implementaion of game's logic."""
-    welcome_message = 'What is the result of the expression?'
+    intro_msg = 'What is the result of the expression?'
     build_question = prepare_question_and_answer
     ask_question = answer_int
 
-    run_game(welcome_message, build_question, ask_question)
+    run_game(intro_msg, build_question, ask_question)
 
 
 def prepare_question_and_answer() -> tuple:

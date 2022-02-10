@@ -6,11 +6,11 @@ from brain_games.games.common import calc_gcd, random_int, run_game
 
 def brain_prime() -> None:
     """Implementaion of game's logic."""
-    welcome_message = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+    intro_msg = 'Answer "yes" if given number is prime. Otherwise answer "no".'
     build_question = prepare_question_and_answer
     ask_question = answer_yes_no
 
-    run_game(welcome_message, build_question, ask_question)
+    run_game(intro_msg, build_question, ask_question)
 
 
 def prepare_question_and_answer() -> tuple:

@@ -6,11 +6,11 @@ from brain_games.games.common import calc_gcd, random_int, run_game
 
 def brain_gcd() -> None:
     """Implementaion of game's logic."""
-    welcome_message = 'Find the greatest common divisor of given numbers.'
+    intro_msg = 'Find the greatest common divisor of given numbers.'
     build_question = prepare_question_and_answer
     ask_question = answer_int
 
-    run_game(welcome_message, build_question, ask_question)
+    run_game(intro_msg, build_question, ask_question)
 
 
 def prepare_question_and_answer() -> tuple:
