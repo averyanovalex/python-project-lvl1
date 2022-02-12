@@ -7,10 +7,12 @@ from brain_games.games.common import random_int, run_game
 def brain_even() -> None:
     """Implementaion of game's logic."""
     intro_msg = 'Answer "yes" if the number is even, otherwise answer "no".'
-    build_question = prepare_question_and_answer
-    ask_question = answer_yes_no
 
-    run_game(intro_msg, build_question, ask_question)
+    run_game(
+        welcome_message=intro_msg,
+        build_question=prepare_question_and_answer,
+        ask_question=answer_yes_no,
+    )
 
 
 def prepare_question_and_answer() -> tuple:
