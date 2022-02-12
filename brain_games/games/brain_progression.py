@@ -77,9 +77,9 @@ def question_as_str(progression: list, missed_item: int) -> str:
     Returns:
         str
     """
-    progr_str = ''
+    progression_str = ''
     for index, progr_item in enumerate(progression):
         item_str = '..' if index == missed_item else str(progr_item)
-        progr_str += '{0} '.format(item_str)
+        progression_str += '{0} '.format(item_str)
 
-    return 'Question: {progr}'.format(progr=progr_str[:-1])
+    return 'Question: {0}'.format(progression_str[:-1])
