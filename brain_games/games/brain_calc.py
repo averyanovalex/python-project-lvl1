@@ -2,7 +2,7 @@
 
 from random import choice
 
-from brain_games.games.common import answer_int, random_int, run_game
+from brain_games.common import answer_int, random_int, run_game
 
 
 def brain_calc() -> None:

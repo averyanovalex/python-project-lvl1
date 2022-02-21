@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Brain_games entrypoint."""
 
-from brain_games.games.common import welcome_user
+from brain_games.common import welcome_user
 
 
 def main() -> None:

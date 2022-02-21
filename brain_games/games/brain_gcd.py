@@ -1,6 +1,6 @@
 """Greatest Common Devizor game."""
 
-from brain_games.games.common import answer_int, calc_gcd, random_int, run_game
+from brain_games.common import answer_int, calc_gcd, random_int, run_game
 
 
 def brain_gcd() -> None:

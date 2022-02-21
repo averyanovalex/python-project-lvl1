@@ -1,6 +1,6 @@
 """Prime number game."""
 
-from brain_games.games.common import (
+from brain_games.common import (
     answer_yes_no,
     calc_gcd,
     random_int,
