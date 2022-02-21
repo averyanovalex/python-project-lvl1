@@ -25,7 +25,7 @@ def prepare_question_and_answer() -> tuple:
     num1 = random_int()
     num2 = random_int()
 
-    question = 'Question: {s1} {s2}'.format(s1=str(num1), s2=str(num2))
+    question = '{0} {1}'.format(str(num1), str(num2))
     right_answer = str(calc_gcd(num1, num2))
 
     return question, right_answer

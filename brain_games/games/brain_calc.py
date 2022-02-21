@@ -98,4 +98,4 @@ def question_as_str(substr1, substr2, substr3) -> str:
     Returns:
         str
     """
-    return 'Question: {s1} {s2} {s3}'.format(s1=substr1, s2=substr2, s3=substr3)
+    return '{0} {1} {2}'.format(substr1, substr2, substr3)

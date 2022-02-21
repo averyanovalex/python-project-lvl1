@@ -81,4 +81,4 @@ def question_as_str(progression: list, missed_item: int) -> str:
         item_str = '..' if index == missed_item else str(progr_item)
         progr_str += '{0} '.format(item_str)
 
-    return 'Question: {progr}'.format(progr=progr_str[:-1])
+    return progr_str[:-1]

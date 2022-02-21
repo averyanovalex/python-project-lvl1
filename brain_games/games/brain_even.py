@@ -23,7 +23,7 @@ def prepare_question_and_answer() -> tuple:
         str, str
     """
     number = random_int()
-    question = 'Question: {number}'.format(number=number)
+    question = str(number)
     right_answer = 'yes' if number % 2 == 0 else 'no'
 
     return question, right_answer

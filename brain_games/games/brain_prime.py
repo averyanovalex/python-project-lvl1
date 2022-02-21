@@ -24,7 +24,7 @@ def prepare_question_and_answer() -> tuple:
     """
     num = random_int()
 
-    question = 'Question: {s1}'.format(s1=str(num))
+    question = str(num)
     right_answer = 'yes' if is_prime(num) else 'no'
 
     return question, right_answer

@@ -126,7 +126,7 @@ def answer_yes_no(question: str) -> str:
     Returns:
         str
     """
-    print(question)
+    print('Question: {0}'.format(question))
     answer = prompt.string('Your answer: ')
     while answer not in {'yes', 'no'}:
         answer = prompt.string('Answer "yes" or "no". Your answer: ')
@@ -145,5 +145,5 @@ def answer_int(question: str) -> str:
     Returns:
         str
     """
-    print(question)
+    print('Question: {0}'.format(question))
     return str(prompt.integer('Your answer: ', empty=False))
