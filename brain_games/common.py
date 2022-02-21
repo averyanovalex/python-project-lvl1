@@ -7,7 +7,7 @@ import prompt
 
 RANDOM_NUMBER_MIN = 1
 RANDOM_NUMBER_MAX = 100
-ROUNDS = 3
+ROUNDS_COUNT = 3
 
 
 def run_game(welcome_message: str, build_question: Callable, ask_question: Callable) -> None:
@@ -24,7 +24,7 @@ def run_game(welcome_message: str, build_question: Callable, ask_question: Calla
     name = welcome_user()
     print(welcome_message)
 
-    for _ in range(ROUNDS):
+    for _ in range(ROUNDS_COUNT):
         question, right_answer = build_question()
 
         answer = ask_question(question)
