@@ -6,7 +6,7 @@ from brain_games.common import answer_int, run_game
 
 PROGRESSION_LEN_MIN = 5
 PROGRESSION_LEN_MAX = 10
-PROGRESSION_START_ELEMENT_MAX = 9
+PROGRESSION_START_ITEM_MAX = 9
 PROGRESSION_ITERATOR_MAX = 5
 
 
@@ -28,7 +28,14 @@ def prepare_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    progression = generate_progression()
+    progression = generate_arithmetic_progression(
+        len_min=PROGRESSION_LEN_MIN,
+        len_max=PROGRESSION_LEN_MAX,
+        start_item_max=PROGRESSION_START_ITEM_MAX,
+        iterator_max=PROGRESSION_ITERATOR_MAX
+    )
+
+
     missed_item = choice_missed_item(progression)
 
     question = question_as_str(progression, missed_item)
@@ -37,16 +44,21 @@ def prepare_question_and_answer() -> tuple:
     return question, right_answer
 
 
-def generate_progression() -> list:
+def generate_arithmetic_progression(
+    len_min: int,
+    len_max: int,
+    start_item_max: int,
+    iterator_max: int,
+) -> list:
     """
     Generate arithmetic progression.
 
     Returns:
         list[int]
     """
-    progr_len = randint(PROGRESSION_LEN_MIN, PROGRESSION_LEN_MAX)
-    start_item = randint(1, PROGRESSION_START_ELEMENT_MAX)
-    iterator = randint(1, PROGRESSION_ITERATOR_MAX)
+    progr_len = randint(len_min, len_max)
+    start_item = randint(1, start_item_max)
+    iterator = randint(1, iterator_max)
 
     last_element = start_item + iterator * progr_len
     return list(range(start_item, last_element + 1, iterator))
