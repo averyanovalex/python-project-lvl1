@@ -28,9 +28,9 @@ def run_game(welcome_message: str, build_question: Callable, ask_question: Calla
         question, right_answer = build_question()
 
         answer = ask_question(question)
-        is_correct = check_answer(answer, right_answer, name)
+        correct = check_answer(answer, right_answer, name)
 
-        if not is_correct:
+        if not correct:
             return
 
     congratulate_user(name)
