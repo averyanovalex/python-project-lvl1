@@ -1,7 +1,11 @@
 """Prime number game."""
 
-from brain_games.cli import answer_yes_no
-from brain_games.games.common import calc_gcd, random_int, run_game
+from brain_games.games.common import (
+    answer_yes_no,
+    calc_gcd,
+    random_int,
+    run_game,
+)
 
 
 def brain_prime() -> None:

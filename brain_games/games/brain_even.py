@@ -1,7 +1,6 @@
 """Even game."""
 
-from brain_games.cli import answer_yes_no
-from brain_games.games.common import random_int, run_game
+from brain_games.games.common import answer_yes_no, random_int, run_game
 
 
 def brain_even() -> None:

@@ -3,7 +3,7 @@
 from random import randint
 from typing import Callable
 
-from brain_games.cli import print_text, welcome_user
+import prompt
 
 RANDOM_NUMBER_MIN = 1
 RANDOM_NUMBER_MAX = 100
@@ -22,7 +22,7 @@ def run_game(welcome_message: str, build_question: Callable, ask_question: Calla
         ask_question: function to ask question to user
     """
     name = welcome_user()
-    print_text(welcome_message)
+    print(welcome_message)
 
     for _ in range(ROUNDS):
         question, right_answer = build_question()
@@ -34,6 +34,19 @@ def run_game(welcome_message: str, build_question: Callable, ask_question: Calla
             return
 
     congratulate_user(name)
+
+
+def welcome_user() -> str:
+    """
+    Ask and return user name.
+
+    Returns:
+        str
+    """
+    print('Welcome to the Brain Games!')
+    name = prompt.string('May I have your name? ')
+    print('Hello, {name}!'.format(name=name))
+    return name
 
 
 def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
@@ -52,12 +65,12 @@ def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
         bool
     """
     if answer == right_answer:
-        print_text('Correct!')
+        print('Correct!')
         return True
 
     template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
-    print_text(template.format(s1=answer, s2=right_answer))
-    print_text("Let's try again, {s1}!".format(s1=user_name))
+    print(template.format(s1=answer, s2=right_answer))
+    print("Let's try again, {s1}!".format(s1=user_name))
     return False
 
 
@@ -68,7 +81,7 @@ def congratulate_user(user_name: str) -> None:
     Args:
         user_name: user's name
     """
-    print_text('Congratulations, {name}!'.format(name=user_name))
+    print('Congratulations, {name}!'.format(name=user_name))
 
 
 def calc_gcd(number1: int, number2: int) -> int:
@@ -99,3 +112,38 @@ def random_int() -> int:
         int
     """
     return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
+
+
+def answer_yes_no(question: str) -> str:
+    """
+    Ask question and return user's answer.
+
+    Correct answers: 'yes' and 'no', otherwise ask user again.
+
+    Args:
+        question: question for user
+
+    Returns:
+        str
+    """
+    print(question)
+    answer = prompt.string('Your answer: ')
+    while answer not in {'yes', 'no'}:
+        answer = prompt.string('Answer "yes" or "no". Your answer: ')
+    return answer
+
+
+def answer_int(question: str) -> str:
+    """
+    Ask question and return user's answer.
+
+    Correct answers is correct integer, otherwise ask user again.
+
+    Args:
+        question: question for user
+
+    Returns:
+        str
+    """
+    print(question)
+    return str(prompt.integer('Your answer: ', empty=False))
