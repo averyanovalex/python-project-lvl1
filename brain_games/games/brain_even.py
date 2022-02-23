@@ -5,11 +5,11 @@ from brain_games.common import generate_random_int, run_game
 
 def brain_even() -> None:
     """Implementaion of game's logic."""
-    welcome_message = 'Answer "yes" if the number is even, otherwise answer "no".'
+    main_question = 'Answer "yes" if the number is even, otherwise answer "no".'
     run_game(
-        welcome_message=welcome_message,
-        build_question=build_question_and_answer,
+        main_question=main_question,
         answer_type=bool,
+        build_question=build_question_and_answer,
     )
 
 

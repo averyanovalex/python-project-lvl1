@@ -9,9 +9,9 @@ from brain_games.common import generate_random_int, run_game
 def brain_calc() -> None:
     """Implementaion of game's logic."""
     run_game(
-        welcome_message='What is the result of the expression?',
-        build_question=build_question_and_answer,
+        main_question='What is the result of the expression?',
         answer_type=int,
+        build_question=build_question_and_answer,
     )
 
 

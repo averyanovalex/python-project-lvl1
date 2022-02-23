@@ -5,11 +5,11 @@ from brain_games.common import generate_random_int, run_game
 
 def brain_prime() -> None:
     """Implementaion of game's logic."""
-    welcome_message = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+    main_question = 'Answer "yes" if given number is prime. Otherwise answer "no".'
     run_game(
-        welcome_message=welcome_message,
-        build_question=build_question_and_answer,
+        main_question=main_question,
         answer_type=bool,
+        build_question=build_question_and_answer,
     )
 
 

@@ -13,9 +13,9 @@ PROGRESSION_ITERATOR_MAX = 5
 def brain_progression() -> None:
     """Implementaion of game's logic."""
     run_game(
-        welcome_message='What number is missing in the progression?',
-        build_question=build_question_and_answer,
+        main_question='What number is missing in the progression?',
         answer_type=int,
+        build_question=build_question_and_answer,
     )
 
 
