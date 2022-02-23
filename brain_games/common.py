@@ -5,8 +5,8 @@ from typing import Callable
 
 import prompt
 
-RANDOM_NUMBER_MIN = 1
-RANDOM_NUMBER_MAX = 100
+RANDOM_NUMBER_MIN = -10
+RANDOM_NUMBER_MAX = 50
 ROUNDS_COUNT = 3
 
 
@@ -95,6 +95,9 @@ def calculate_gcd(number1: int, number2: int) -> int:
     Returns:
         int
     """
+    number1 = abs(number1)
+    number2 = abs(number2)
+    
     min_number = min(number1, number2)
     max_candidate = min_number // 2 + 1
     gcd = 1
@@ -111,6 +114,7 @@ def generate_random_int() -> int:
     Returns:
         int
     """
+    
     return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
 
 

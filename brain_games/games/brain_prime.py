@@ -45,13 +45,12 @@ def is_prime(number: int) -> bool:
 
     Returns:
         bool
-    """
-    if number in {1, 2}:
-        return True
+    """   
+    if number == 0:
+        return False
 
-    for candidate in range(2, number - 1):
-        gcd = calculate_gcd(number, candidate)
-        if gcd > 1:
+    for devisor in range(2, abs(number) // 2):
+        if number % devisor == 0:
             return False
 
     return True
