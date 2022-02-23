@@ -1,5 +1,6 @@
 """Calc game."""
 
+from operator import add, mul, sub
 from random import choice
 
 from brain_games.common import generate_random_int, run_game
@@ -40,50 +41,8 @@ def generate_random_math_operation() -> tuple:
     Returns:
         str, def
     """
-    math_operations = [('+', add), ('-', diff), ('*', multiply)]
+    math_operations = [('+', add), ('-', sub), ('*', mul)]
     return choice(math_operations)
-
-
-def add(number1: int, number2: int) -> int:
-    """
-    Calculate sum.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    return number1 + number2
-
-
-def diff(number1: int, number2: int) -> int:
-    """
-    Calculate difference.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    return number1 - number2
-
-
-def multiply(number1: int, number2: int) -> int:
-    """
-    Calculate multiplication.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    return number1 * number2
 
 
 def compile_question(substring1, substring2, substring3) -> str:
