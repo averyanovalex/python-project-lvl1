@@ -82,20 +82,20 @@ def choice_missed_item(progression: list) -> int:
     return randint(0, len(progression) - 1)
 
 
-def compile_question(progression: list, missed_item_index: int) -> str:
+def compile_question(progression: list, missed_index: int) -> str:
     """
     Build question as string from progression (list) and missed item.
 
     Args:
         progression: generated arithmetic progression
-        missed_item_index: index of missed element
+        missed_index: index of missed item
 
     Returns:
         str
     """
     progression_as_str = ''
     for index, progression_item in enumerate(progression):
-        item_as_str = '..' if index == missed_item_index else str(progression_item)
+        item_as_str = '..' if index == missed_index else str(progression_item)
         progression_as_str += '{0} '.format(item_as_str)
 
     return progression_as_str[:-1]

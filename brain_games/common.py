@@ -10,7 +10,11 @@ RANDOM_NUMBER_MAX = 50
 ROUNDS_COUNT = 3
 
 
-def run_game(main_question: str, answer_type: Any, build_question: Callable) -> None:
+def run_game(
+    main_question: str,
+    answer_type: Any,
+    build_question: Callable,
+) -> None:
     """
     Engine for all games.
 
