@@ -21,19 +21,19 @@ def run_game(welcome_message: str, build_question: Callable, ask_question: Calla
         build_question: function to prepare question and right answer
         ask_question: function to ask question to user
     """
-    name = welcome_user()
+    user_name = welcome_user()
     print(welcome_message)
 
     for _ in range(ROUNDS_COUNT):
         question, right_answer = build_question()
 
         answer = ask_question(question)
-        correct = check_answer(answer, right_answer, name)
+        correct = check_answer(answer, right_answer, user_name)
 
         if not correct:
             return
 
-    congratulate_user(name)
+    congratulate_user(user_name)
 
 
 def welcome_user() -> str:
@@ -45,7 +45,7 @@ def welcome_user() -> str:
     """
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
-    print('Hello, {name}!'.format(name=name))
+    print('Hello, {0}!'.format(name))
     return name
 
 
@@ -81,10 +81,10 @@ def congratulate_user(user_name: str) -> None:
     Args:
         user_name: user's name
     """
-    print('Congratulations, {name}!'.format(name=user_name))
+    print('Congratulations, {0}!'.format(user_name))
 
 
-def calc_gcd(number1: int, number2: int) -> int:
+def calculate_gcd(number1: int, number2: int) -> int:
     """
     Calulate greatest common devizor.
 
@@ -95,8 +95,8 @@ def calc_gcd(number1: int, number2: int) -> int:
     Returns:
         int
     """
-    min_num = min(number1, number2)
-    max_candidate = min_num // 2 + 1
+    min_number = min(number1, number2)
+    max_candidate = min_number // 2 + 1
     gcd = 1
     for candidate in range(2, max_candidate):
         if number1 % candidate == 0 and number2 % candidate == 0:
@@ -105,7 +105,7 @@ def calc_gcd(number1: int, number2: int) -> int:
     return gcd
 
 
-def random_int() -> int:
+def generate_random_int() -> int:
     """Return random integer.
 
     Returns:
@@ -114,7 +114,7 @@ def random_int() -> int:
     return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
 
 
-def answer_yes_no(question: str) -> str:
+def ask_yes_no(question: str) -> str:
     """
     Ask question and return user's answer.
 
@@ -133,7 +133,7 @@ def answer_yes_no(question: str) -> str:
     return answer
 
 
-def answer_int(question: str) -> str:
+def ask_int(question: str) -> str:
     """
     Ask question and return user's answer.
 
