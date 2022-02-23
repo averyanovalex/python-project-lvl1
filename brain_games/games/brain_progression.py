@@ -2,7 +2,7 @@
 
 from random import randint
 
-from brain_games.common import ask_int, run_game
+from brain_games.common import run_game
 
 PROGRESSION_LEN_MIN = 5
 PROGRESSION_LEN_MAX = 10
@@ -15,7 +15,7 @@ def brain_progression() -> None:
     run_game(
         welcome_message='What number is missing in the progression?',
         build_question=build_question_and_answer,
-        ask_question=ask_int,
+        answer_type=int,
     )
 
 

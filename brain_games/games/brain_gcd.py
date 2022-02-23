@@ -1,6 +1,6 @@
 """Greatest Common Devizor game."""
 
-from brain_games.common import ask_int, generate_random_int, run_game
+from brain_games.common import generate_random_int, run_game
 
 
 def brain_gcd() -> None:
@@ -8,7 +8,7 @@ def brain_gcd() -> None:
     run_game(
         welcome_message='Find the greatest common divisor of given numbers.',
         build_question=build_question_and_answer,
-        ask_question=ask_int,
+        answer_type=int,
     )
 
 
