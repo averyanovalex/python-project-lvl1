@@ -84,38 +84,16 @@ def congratulate_user(user_name: str) -> None:
     print('Congratulations, {0}!'.format(user_name))
 
 
-def calculate_gcd(number1: int, number2: int) -> int:
-    """
-    Calulate greatest common devizor.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    number1 = abs(number1)
-    number2 = abs(number2)
-    
-    min_number = min(number1, number2)
-    max_candidate = min_number // 2 + 1
-    gcd = 1
-    for candidate in range(2, max_candidate):
-        if number1 % candidate == 0 and number2 % candidate == 0:
-            gcd = candidate
-
-    return gcd
-
-
-def generate_random_int() -> int:
+def generate_random_int(only_positive: bool = False) -> int:
     """Return random integer.
 
+    Args:
+        only_positive: if True return only positive number
+
     Returns:
         int
     """
-    
-    return randint(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
+    return randint(1 if only_positive else RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX)
 
 
 def ask_yes_no(question: str) -> str:

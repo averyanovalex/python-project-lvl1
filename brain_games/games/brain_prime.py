@@ -1,11 +1,6 @@
 """Prime number game."""
 
-from brain_games.common import (
-    ask_yes_no,
-    calculate_gcd,
-    generate_random_int,
-    run_game,
-)
+from brain_games.common import ask_yes_no, generate_random_int, run_game
 
 
 def brain_prime() -> None:
@@ -45,7 +40,7 @@ def is_prime(number: int) -> bool:
 
     Returns:
         bool
-    """   
+    """
     if number == 0:
         return False
 

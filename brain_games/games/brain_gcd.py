@@ -1,11 +1,6 @@
 """Greatest Common Devizor game."""
 
-from brain_games.common import (
-    ask_int,
-    calculate_gcd,
-    generate_random_int,
-    run_game,
-)
+from brain_games.common import ask_int, generate_random_int, run_game
 
 
 def brain_gcd() -> None:
@@ -27,10 +22,31 @@ def build_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    number1 = generate_random_int()
-    number2 = generate_random_int()
+    number1 = generate_random_int(only_positive=True)
+    number2 = generate_random_int(only_positive=True)
 
     question = '{0} {1}'.format(str(number1), str(number2))
     right_answer = str(calculate_gcd(number1, number2))
 
     return question, right_answer
+
+
+def calculate_gcd(number1: int, number2: int) -> int:
+    """
+    Calulate greatest common devizor.
+
+    Args:
+        number1: first number
+        number2: second number
+
+    Returns:
+        int
+    """
+    min_number = min(number1, number2)
+    max_candidate = min_number // 2 + 1
+    gcd = 1
+    for candidate in range(2, max_candidate):
+        if number1 % candidate == 0 and number2 % candidate == 0:
+            gcd = candidate
+
+    return gcd
