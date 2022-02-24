@@ -23,7 +23,7 @@ def build_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    number = generate_random_int()
+    number = generate_random_int(only_positive=True)
 
     question = str(number)
     right_answer = 'yes' if is_prime(number) else 'no'
@@ -41,11 +41,30 @@ def is_prime(number: int) -> bool:
     Returns:
         bool
     """
-    if number == 0:
-        return False
+    if number in {1, 2}:
+        return True
 
-    for devisor in range(2, abs(number)):
-        if number % devisor == 0:
+    for candidate in range(2, number):
+        gcd = calc_gcd(number, candidate)
+        if gcd > 1:
             return False
 
     return True
+
+
+def calc_gcd(number1: int, number2: int) -> int:
+    """
+    Calulate greatest common devizor.
+    Args:
+        number1: first number
+        number2: second number
+    Returns:
+        int
+    """
+    min_num = min(number1, number2)
+    gcd = 1
+    for candidate in range(2, min_num + 1):
+        if number1 % candidate == 0 and number2 % candidate == 0:
+            gcd = candidate
+
+    return gcd
