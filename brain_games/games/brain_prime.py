@@ -1,21 +1,19 @@
 """Prime number game."""
 
-from brain_games.cli import answer_yes_no
-from brain_games.games.common import calc_gcd, random_int, run_game
+from brain_games.common import generate_random_int, run_game
 
 
 def brain_prime() -> None:
     """Implementaion of game's logic."""
-    intro_msg = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-
+    question = 'Answer "yes" if given number is prime. Otherwise answer "no".'
     run_game(
-        welcome_message=intro_msg,
-        build_question=prepare_question_and_answer,
-        ask_question=answer_yes_no,
+        main_question=question,
+        answer_type=bool,
+        build_question=build_question_and_answer,
     )
 
 
-def prepare_question_and_answer() -> tuple:
+def build_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -25,10 +23,10 @@ def prepare_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    num = random_int()
+    number = generate_random_int(only_positive=True)
 
-    question = 'Question: {s1}'.format(s1=str(num))
-    right_answer = 'yes' if is_prime(num) else 'no'
+    question = str(number)
+    right_answer = 'yes' if is_prime(number) else 'no'
 
     return question, right_answer
 
@@ -43,12 +41,11 @@ def is_prime(number: int) -> bool:
     Returns:
         bool
     """
-    if number in {1, 2}:
-        return True
+    if number == 0:
+        return False
 
-    for candidate in range(2, number):
-        gcd = calc_gcd(number, candidate)
-        if gcd > 1:
+    for devisor in range(2, abs(number) // 2 + 1):
+        if number % devisor == 0:
             return False
 
     return True

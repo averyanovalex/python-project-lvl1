@@ -1,19 +1,18 @@
 """Greatest Common Devizor game."""
 
-from brain_games.cli import answer_int
-from brain_games.games.common import calc_gcd, random_int, run_game
+from brain_games.common import generate_random_int, run_game
 
 
 def brain_gcd() -> None:
     """Implementaion of game's logic."""
     run_game(
-        welcome_message='Find the greatest common divisor of given numbers.',
-        build_question=prepare_question_and_answer,
-        ask_question=answer_int,
+        main_question='Find the greatest common divisor of given numbers.',
+        answer_type=int,
+        build_question=build_question_and_answer,
     )
 
 
-def prepare_question_and_answer() -> tuple:
+def build_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -23,10 +22,31 @@ def prepare_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    num1 = random_int()
-    num2 = random_int()
+    number1 = generate_random_int(only_positive=True)
+    number2 = generate_random_int(only_positive=True)
 
-    question = 'Question: {s1} {s2}'.format(s1=str(num1), s2=str(num2))
-    right_answer = str(calc_gcd(num1, num2))
+    question = '{0} {1}'.format(str(number1), str(number2))
+    right_answer = str(calculate_gcd(number1, number2))
 
     return question, right_answer
+
+
+def calculate_gcd(number1: int, number2: int) -> int:
+    """
+    Calulate greatest common devizor.
+
+    Args:
+        number1: first number
+        number2: second number
+
+    Returns:
+        int
+    """
+    min_number = min(number1, number2)
+    max_candidate = min_number + 1
+    gcd = 1
+    for candidate in range(2, max_candidate):
+        if number1 % candidate == 0 and number2 % candidate == 0:
+            gcd = candidate
+
+    return gcd

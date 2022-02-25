@@ -1,21 +1,19 @@
 """Even game."""
 
-from brain_games.cli import answer_yes_no
-from brain_games.games.common import random_int, run_game
+from brain_games.common import generate_random_int, run_game
 
 
 def brain_even() -> None:
     """Implementaion of game's logic."""
-    intro_msg = 'Answer "yes" if the number is even, otherwise answer "no".'
-
+    main_question = 'Answer "yes" if the number is even, otherwise answer "no".'
     run_game(
-        welcome_message=intro_msg,
-        build_question=prepare_question_and_answer,
-        ask_question=answer_yes_no,
+        main_question=main_question,
+        answer_type=bool,
+        build_question=build_question_and_answer,
     )
 
 
-def prepare_question_and_answer() -> tuple:
+def build_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -25,8 +23,8 @@ def prepare_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    number = random_int()
-    question = 'Question: {number}'.format(number=number)
+    number = generate_random_int()
+    question = str(number)
     right_answer = 'yes' if number % 2 == 0 else 'no'
 
     return question, right_answer

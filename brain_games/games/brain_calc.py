@@ -1,21 +1,21 @@
 """Calc game."""
 
+from operator import add, mul, sub
 from random import choice
 
-from brain_games.cli import answer_int
-from brain_games.games.common import random_int, run_game
+from brain_games.common import generate_random_int, run_game
 
 
 def brain_calc() -> None:
     """Implementaion of game's logic."""
     run_game(
-        welcome_message='What is the result of the expression?',
-        build_question=prepare_question_and_answer,
-        ask_question=answer_int,
+        main_question='What is the result of the expression?',
+        answer_type=int,
+        build_question=build_question_and_answer,
     )
 
 
-def prepare_question_and_answer() -> tuple:
+def build_question_and_answer() -> tuple:
     """
     Prepare question and correct answer for user.
 
@@ -25,78 +25,36 @@ def prepare_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    num1 = random_int()
-    num2 = random_int()
-    mark, func = random_math_operation()
+    number1 = generate_random_int()
+    number2 = generate_random_int()
+    mark, function = generate_random_math_operation()
 
-    right_answer = str(func(num1, num2))
+    right_answer = str(function(number1, number2))
 
-    return question_as_str(num1, mark, num2), right_answer
+    return compile_question(number1, mark, number2), right_answer
 
 
-def random_math_operation() -> tuple:
+def generate_random_math_operation() -> tuple:
     """
     Generate random math operation.
 
     Returns:
         str, def
     """
-    math_ops = [('+', add), ('-', diff), ('*', multiply)]
-    return choice(math_ops)
+    math_operations = [('+', add), ('-', sub), ('*', mul)]
+    return choice(math_operations)
 
 
-def add(number1: int, number2: int) -> int:
-    """
-    Calculate sum.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    return number1 + number2
-
-
-def diff(number1: int, number2: int) -> int:
-    """
-    Calculate difference.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    return number1 - number2
-
-
-def multiply(number1: int, number2: int) -> int:
-    """
-    Calculate multiplication.
-
-    Args:
-        number1: first number
-        number2: second number
-
-    Returns:
-        int
-    """
-    return number1 * number2
-
-
-def question_as_str(substr1, substr2, substr3) -> str:
+def compile_question(substring1, substring2, substring3) -> str:
     """
     Compile question for user as string.
 
     Args:
-        substr1: first substring
-        substr2: second substring
-        substr3: third substring
+        substring1: first substring
+        substring2: second substring
+        substring3: third substring
 
     Returns:
         str
     """
-    return 'Question: {s1} {s2} {s3}'.format(s1=substr1, s2=substr2, s3=substr3)
+    return '{0} {1} {2}'.format(substring1, substring2, substring3)
