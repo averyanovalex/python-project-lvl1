@@ -46,8 +46,6 @@ def ask(question: str, answer_type: Any = str) -> str:
     """
     Ask question and return user's answer.
 
-    Wrapper function. Execute specific function for ask user.
-
     Args:
         question: question for user
         answer_type: available type of users's answer
@@ -56,63 +54,8 @@ def ask(question: str, answer_type: Any = str) -> str:
         str
 
     """
-    handlers = {
-        bool: ask_yes_no,
-        int: ask_int,
-        str: ask_str,
-    }
-    ask_user = handlers[answer_type]
-
-    return ask_user(question)
-
-
-def ask_str(question: str) -> str:
-    """
-    Ask question and return user's answer.
-
-    Args:
-        question: question for user
-
-    Returns:
-        str
-    """
     print('Question: {0}'.format(question))
-    return str(prompt.string('Your answer: ', empty=False))
-
-
-def ask_yes_no(question: str) -> str:
-    """
-    Ask question and return user's answer.
-
-    Correct answers: 'yes' and 'no', otherwise ask user again.
-
-    Args:
-        question: question for user
-
-    Returns:
-        str
-    """
-    print('Question: {0}'.format(question))
-    answer = prompt.string('Your answer: ')
-    while answer not in {'yes', 'no'}:
-        answer = prompt.string('Answer "yes" or "no". Your answer: ')
-    return answer
-
-
-def ask_int(question: str) -> str:
-    """
-    Ask question and return user's answer.
-
-    Correct answers is correct integer, otherwise ask user again.
-
-    Args:
-        question: question for user
-
-    Returns:
-        str
-    """
-    print('Question: {0}'.format(question))
-    return str(prompt.integer('Your answer: ', empty=False))
+    return prompt.string('Your answer: ')
 
 
 def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
