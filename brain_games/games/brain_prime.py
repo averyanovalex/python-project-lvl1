@@ -8,7 +8,6 @@ def brain_prime() -> None:
     question = 'Answer "yes" if given number is prime. Otherwise answer "no".'
     run_game(
         main_question=question,
-        answer_type=bool,
         build_question=build_question_and_answer,
     )
 

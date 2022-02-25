@@ -7,7 +7,6 @@ def brain_gcd() -> None:
     """Implementaion of game's logic."""
     run_game(
         main_question='Find the greatest common divisor of given numbers.',
-        answer_type=int,
         build_question=build_question_and_answer,
     )
 

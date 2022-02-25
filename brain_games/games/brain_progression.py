@@ -14,7 +14,6 @@ def brain_progression() -> None:
     """Implementaion of game's logic."""
     run_game(
         main_question='What number is missing in the progression?',
-        answer_type=int,
         build_question=build_question_and_answer,
     )
 

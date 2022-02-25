@@ -8,7 +8,6 @@ def brain_even() -> None:
     main_question = 'Answer "yes" if the number is even, otherwise answer "no".'
     run_game(
         main_question=main_question,
-        answer_type=bool,
         build_question=build_question_and_answer,
     )
 

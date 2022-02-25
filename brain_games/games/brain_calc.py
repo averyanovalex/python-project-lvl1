@@ -10,7 +10,6 @@ def brain_calc() -> None:
     """Implementaion of game's logic."""
     run_game(
         main_question='What is the result of the expression?',
-        answer_type=int,
         build_question=build_question_and_answer,
     )
 
