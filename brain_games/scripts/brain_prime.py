@@ -8,7 +8,7 @@ from brain_games.games import brain_prime as game
 def main() -> None:
     """Run game."""
     run_game(
-        main_question=game.get_welcome_game_question(),
+        main_question='Answer "yes" if given number is prime. Otherwise answer "no".',
         build_question=game.build_question_and_answer,
     )
 
