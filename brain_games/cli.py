@@ -38,4 +38,5 @@ def ask(question: str) -> str:
 
     """
     print_text('Question: {0}'.format(question))
-    return prompt.string('Your answer: ', empty=True)
+    answer = prompt.string('Your answer: ', empty=True)
+    return '' if answer is None else answer
