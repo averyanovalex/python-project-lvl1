@@ -1,16 +1,16 @@
 """Prime number game."""
 
 from brain_games.common import generate_random_int
-from brain_games.game_engine import run_game
 
 
-def brain_prime() -> None:
-    """Implementaion of game's logic."""
-    question = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-    run_game(
-        main_question=question,
-        build_question=build_question_and_answer,
-    )
+def get_welcome_game_question() -> str:
+    """
+    Get welcome main game question to ask user at start.
+
+    Returns:
+        str
+    """
+    return 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def build_question_and_answer() -> tuple:

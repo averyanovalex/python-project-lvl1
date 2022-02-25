@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 """Game 'Greatest common devizor'  entrypoint."""
 
-from brain_games.games.brain_gcd import brain_gcd
+from brain_games.game_engine import run_game
+from brain_games.games import brain_gcd as game
 
 
 def main() -> None:
-    """Entrypoint function."""
-    brain_gcd()
+    """Run game."""
+    run_game(
+        main_question=game.get_welcome_game_question(),
+        build_question=game.build_question_and_answer,
+    )
 
 
 if __name__ == '__main__':

@@ -4,15 +4,16 @@ from operator import add, mul, sub
 from random import choice
 
 from brain_games.common import generate_random_int
-from brain_games.game_engine import run_game
 
 
-def brain_calc() -> None:
-    """Implementaion of game's logic."""
-    run_game(
-        main_question='What is the result of the expression?',
-        build_question=build_question_and_answer,
-    )
+def get_welcome_game_question() -> str:
+    """
+    Get welcome main game question to ask user at start.
+
+    Returns:
+        str
+    """
+    return 'What is the result of the expression?'
 
 
 def build_question_and_answer() -> tuple:
