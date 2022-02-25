@@ -22,7 +22,7 @@ def build_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    number = generate_random_int(only_positive=True)
+    number = generate_random_int()
 
     question = str(number)
     right_answer = 'yes' if is_prime(number) else 'no'
