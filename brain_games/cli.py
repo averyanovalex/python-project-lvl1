@@ -38,4 +38,4 @@ def ask(question: str) -> str:
 
     """
     print_text('Question: {0}'.format(question))
-    return prompt.string('Your answer: ')
+    return prompt.string('Your answer: ', empty=True)
