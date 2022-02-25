@@ -21,7 +21,10 @@ def run_game(main_question: str, build_question: Callable) -> None:
     print_text(main_question)
 
     for _ in range(ROUNDS_COUNT):
-        question, right_answer = build_question()
+        try:
+            question, right_answer = build_question()
+        except:
+            print('TESTTTTTT')
 
         answer = ask(question)
         correct = check_answer(answer, right_answer, user_name)
