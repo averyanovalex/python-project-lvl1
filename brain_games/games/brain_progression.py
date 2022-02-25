@@ -93,9 +93,11 @@ def compile_question(progression: list, missed_index: int) -> str:
     Returns:
         str
     """
-    progression_as_str = ''
+    question = ''
     for index, progression_item in enumerate(progression):
-        item_as_str = '..' if index == missed_index else str(progression_item)
-        progression_as_str += '{0} '.format(item_as_str)
+        question_item = '..' if index == missed_index else str(progression_item)
+        question += '{0} '.format(question_item)
 
-    return progression_as_str[:-1]
+    return question[:-1]
+
+
