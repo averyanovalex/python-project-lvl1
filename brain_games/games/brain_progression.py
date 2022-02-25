@@ -99,5 +99,3 @@ def compile_question(progression: list, missed_index: int) -> str:
         question += '{0} '.format(question_item)
 
     return question[:-1]
-
-

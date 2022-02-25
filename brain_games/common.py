@@ -4,6 +4,7 @@ from random import randint
 from typing import Any, Callable
 
 import prompt
+from brain_games.cli import welcome_user
 
 RANDOM_NUMBER_MIN = -10
 RANDOM_NUMBER_MAX = 50
@@ -25,10 +26,7 @@ def run_game(
         answer_type: available type of users's answer in game
         build_question: function to build question and right answer
     """
-    print('Welcome to the Brain Games!')
-
-    user_name = ask('May I have your name? ', answer_type=str)
-    print('Hello, {0}!'.format(user_name))
+    user_name = welcome_user()
 
     print(main_question)
 
