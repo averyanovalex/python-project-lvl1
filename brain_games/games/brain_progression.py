@@ -2,7 +2,7 @@
 
 from random import randint
 
-from brain_games.common import run_game
+from brain_games.game_engine import run_game
 
 PROGRESSION_LEN_MIN = 5
 PROGRESSION_LEN_MAX = 10

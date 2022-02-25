@@ -3,7 +3,8 @@
 from operator import add, mul, sub
 from random import choice
 
-from brain_games.common import generate_random_int, run_game
+from brain_games.common import generate_random_int
+from brain_games.game_engine import run_game
 
 
 def brain_calc() -> None:
