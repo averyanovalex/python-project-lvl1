@@ -26,36 +26,16 @@ def welcome_user() -> str:
     return name
 
 
-def answer_yes_no(question: str) -> str:
+def ask(question: str) -> str:
     """
     Ask question and return user's answer.
-
-    Correct answers: 'yes' and 'no', otherwise ask user again.
 
     Args:
         question: question for user
 
     Returns:
         str
+
     """
-    print_text(question)
-    answer = prompt.string('Your answer: ')
-    while answer not in {'yes', 'no'}:
-        answer = prompt.string('Answer "yes" or "no". Your answer: ')
-    return answer
-
-
-def answer_int(question: str) -> str:
-    """
-    Ask question and return user's answer.
-
-    Correct answers is correct integer, otherwise ask user again.
-
-    Args:
-        question: question for user
-
-    Returns:
-        str
-    """
-    print_text(question)
-    return str(prompt.integer('Your answer: ', empty=False))
+    print_text('Question: {0}'.format(question))
+    return prompt.string('Your answer: ', empty=True)

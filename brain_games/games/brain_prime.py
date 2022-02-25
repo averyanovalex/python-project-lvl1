@@ -1,16 +1,16 @@
 """Prime number game."""
 
-from brain_games.common import generate_random_int, run_game
+from brain_games.common import generate_random_int
 
 
-def brain_prime() -> None:
-    """Implementaion of game's logic."""
-    question = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-    run_game(
-        main_question=question,
-        answer_type=bool,
-        build_question=build_question_and_answer,
-    )
+def get_welcome_game_question() -> str:
+    """
+    Get welcome main game question to ask user at start.
+
+    Returns:
+        str
+    """
+    return 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def build_question_and_answer() -> tuple:
@@ -23,7 +23,7 @@ def build_question_and_answer() -> tuple:
     Returns:
         str, str
     """
-    number = generate_random_int(only_positive=True)
+    number = generate_random_int()
 
     question = str(number)
     right_answer = 'yes' if is_prime(number) else 'no'
@@ -41,10 +41,11 @@ def is_prime(number: int) -> bool:
     Returns:
         bool
     """
-    if number == 0:
+    number = abs(number)
+    if number in {0, 1}:
         return False
 
-    for devisor in range(2, abs(number) // 2 + 1):
+    for devisor in range(2, number // 2 + 1):
         if number % devisor == 0:
             return False
 

@@ -1,16 +1,16 @@
 """Even game."""
 
-from brain_games.common import generate_random_int, run_game
+from brain_games.common import generate_random_int
 
 
-def brain_even() -> None:
-    """Implementaion of game's logic."""
-    main_question = 'Answer "yes" if the number is even, otherwise answer "no".'
-    run_game(
-        main_question=main_question,
-        answer_type=bool,
-        build_question=build_question_and_answer,
-    )
+def get_welcome_game_question() -> str:
+    """
+    Get welcome main game question to ask user at start.
+
+    Returns:
+        str
+    """
+    return 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def build_question_and_answer() -> tuple:

@@ -3,16 +3,17 @@
 from operator import add, mul, sub
 from random import choice
 
-from brain_games.common import generate_random_int, run_game
+from brain_games.common import generate_random_int
 
 
-def brain_calc() -> None:
-    """Implementaion of game's logic."""
-    run_game(
-        main_question='What is the result of the expression?',
-        answer_type=int,
-        build_question=build_question_and_answer,
-    )
+def get_welcome_game_question() -> str:
+    """
+    Get welcome main game question to ask user at start.
+
+    Returns:
+        str
+    """
+    return 'What is the result of the expression?'
 
 
 def build_question_and_answer() -> tuple:

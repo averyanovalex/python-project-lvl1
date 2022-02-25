@@ -1,15 +1,16 @@
 """Greatest Common Devizor game."""
 
-from brain_games.common import generate_random_int, run_game
+from brain_games.common import generate_random_int
 
 
-def brain_gcd() -> None:
-    """Implementaion of game's logic."""
-    run_game(
-        main_question='Find the greatest common divisor of given numbers.',
-        answer_type=int,
-        build_question=build_question_and_answer,
-    )
+def get_welcome_game_question() -> str:
+    """
+    Get welcome main game question to ask user at start.
+
+    Returns:
+        str
+    """
+    return 'Find the greatest common divisor of given numbers.'
 
 
 def build_question_and_answer() -> tuple:
