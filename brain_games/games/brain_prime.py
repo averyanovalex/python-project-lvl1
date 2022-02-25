@@ -41,7 +41,7 @@ def is_prime(number: int) -> bool:
     Returns:
         bool
     """
-    if number in {0, 1}:
+    if number in {0, 1, -1}:
         return False
 
     for devisor in range(2, abs(number) // 2 + 1):
