@@ -89,4 +89,4 @@ def compile_question(progression: list, missed_index: int) -> str:
         question_item = '..' if index == missed_index else str(progression_item)
         question += '{0} '.format(question_item)
 
-    return question[:-1]
+    return question.rstrip()
