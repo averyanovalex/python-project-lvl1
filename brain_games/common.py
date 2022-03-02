@@ -4,7 +4,6 @@ from random import randint
 
 RANDOM_NUMBER_MIN = -10
 RANDOM_NUMBER_MAX = 50
-ROUNDS_COUNT = 3
 
 
 def generate_random_int(only_positive: bool = False) -> int:

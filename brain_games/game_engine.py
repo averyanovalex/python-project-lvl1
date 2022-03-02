@@ -2,8 +2,9 @@
 
 from typing import Callable
 
-from brain_games.cli import ask, print_text, welcome_user
-from brain_games.common import ROUNDS_COUNT
+import prompt
+
+ROUNDS_COUNT = 3
 
 
 def run_game(main_question: str, build_question: Callable) -> None:
@@ -24,34 +25,50 @@ def run_game(main_question: str, build_question: Callable) -> None:
         question, right_answer = build_question()
 
         answer = ask(question)
-        correct = check_answer(answer, right_answer, user_name)
-
-        if not correct:
+        if answer == right_answer:
+            print_text('Correct!')
+        else:
+            template = "'{0}' is wrong answer ;(. Correct answer was '{1}'."
+            print_text(template.format(answer, right_answer))
+            print_text("Let's try again, {0}!".format(user_name))
             return
 
     print_text('Congratulations, {0}!'.format(user_name))
 
 
-def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
+def print_text(text: str) -> None:
     """
-    Check correct users's answer or not.
-
-    After checking, print message for user and return result.
-    If user's answer is correct return True, otherwise  False.
+    Print text into command line interface.
 
     Args:
-        answer: user's answer
-        right_answer: correct answer
-        user_name: user's name
+        text: text for print
+    """
+    print(text)
+
+
+def welcome_user() -> str:
+    """
+    Ask and return user name.
 
     Returns:
-        bool
+        str
     """
-    if answer == right_answer:
-        print_text('Correct!')
-        return True
+    print_text('Welcome to the Brain Games!')
+    name = prompt.string('May I have your name? ')
+    print_text('Hello, {name}!'.format(name=name))
+    return name
 
-    template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
-    print_text(template.format(s1=answer, s2=right_answer))
-    print_text("Let's try again, {s1}!".format(s1=user_name))
-    return False
+
+def ask(question: str) -> str:
+    """
+    Ask question and return user's answer.
+
+    Args:
+        question: question for user
+
+    Returns:
+        str
+
+    """
+    print_text('Question: {0}'.format(question))
+    return prompt.string('Your answer: ', empty=True)

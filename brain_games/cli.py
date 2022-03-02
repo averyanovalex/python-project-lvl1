@@ -24,18 +24,3 @@ def welcome_user() -> str:
     name = prompt.string('May I have your name? ')
     print_text('Hello, {name}!'.format(name=name))
     return name
-
-
-def ask(question: str) -> str:
-    """
-    Ask question and return user's answer.
-
-    Args:
-        question: question for user
-
-    Returns:
-        str
-
-    """
-    print_text('Question: {0}'.format(question))
-    return prompt.string('Your answer: ', empty=True)
