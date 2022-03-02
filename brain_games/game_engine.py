@@ -12,45 +12,24 @@ def run_game(game) -> None:
     Args:
         game: module with specific game's logic
     """
-    user_name = welcome_user()
+    print('Welcome to the Brain Games!')
+    user_name = prompt.string('May I have your name? ')
+    print(f'Hello, {user_name}!')
 
-    print_text(game.MAIN_QUESTION)
+    print(game.MAIN_QUESTION)
 
     for _ in range(ROUNDS_COUNT):
         question, right_answer = game.build_question_and_answer()
 
-        print_text(f'Question: {question}')
+        print(f'Question: {question}')
         answer = prompt.string('Your answer: ', empty=True)
 
         if answer == right_answer:
-            print_text('Correct!')
+            print('Correct!')
         else:
             template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
-            print_text(template.format(s1=answer, s2=right_answer))
-            print_text(f"Let's try again, {user_name}!")
+            print(template.format(s1=answer, s2=right_answer))
+            print(f"Let's try again, {user_name}!")
             return
 
-    print_text(f'Congratulations, {user_name}!')
-
-
-def print_text(text: str) -> None:
-    """
-    Print text into command line interface.
-
-    Args:
-        text: text for print
-    """
-    print(text)
-
-
-def welcome_user() -> str:
-    """
-    Ask and return user name.
-
-    Returns:
-        str
-    """
-    print_text('Welcome to the Brain Games!')
-    name = prompt.string('May I have your name? ')
-    print_text(f'Hello, {name}!')
-    return name
+    print(f'Congratulations, {user_name}!')
