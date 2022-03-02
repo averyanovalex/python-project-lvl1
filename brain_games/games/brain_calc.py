@@ -5,7 +5,7 @@ from random import choice
 
 from brain_games.common import generate_random_int
 
-main_question = 'What is the result of the expression?'
+MAIN_QUESTION = 'What is the result of the expression?'
 
 
 def build_question_and_answer() -> tuple:

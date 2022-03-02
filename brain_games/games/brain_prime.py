@@ -2,7 +2,7 @@
 
 from brain_games.common import generate_random_int
 
-main_question = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+MAIN_QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def build_question_and_answer() -> tuple:

@@ -14,7 +14,7 @@ def run_game(game) -> None:
     """
     user_name = welcome_user()
 
-    print_text(game.main_question)
+    print_text(game.MAIN_QUESTION)
 
     for _ in range(ROUNDS_COUNT):
         question, right_answer = game.build_question_and_answer()

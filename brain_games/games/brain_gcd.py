@@ -2,7 +2,7 @@
 
 from brain_games.common import generate_random_int
 
-main_question = 'Find the greatest common divisor of given numbers.'
+MAIN_QUESTION = 'Find the greatest common divisor of given numbers.'
 
 
 def build_question_and_answer() -> tuple:
