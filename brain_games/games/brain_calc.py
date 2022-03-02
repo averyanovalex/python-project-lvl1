@@ -24,7 +24,7 @@ def build_question_and_answer() -> tuple:
 
     right_answer = str(function(number1, number2))
 
-    return compile_question(number1, mark, number2), right_answer
+    return '{0} {1} {2}'.format(number1, mark, number2), right_answer
 
 
 def generate_random_math_operation() -> tuple:
@@ -36,18 +36,3 @@ def generate_random_math_operation() -> tuple:
     """
     math_operations = [('+', add), ('-', sub), ('*', mul)]
     return choice(math_operations)
-
-
-def compile_question(substring1, substring2, substring3) -> str:
-    """
-    Compile question for user as string.
-
-    Args:
-        substring1: first substring
-        substring2: second substring
-        substring3: third substring
-
-    Returns:
-        str
-    """
-    return '{0} {1} {2}'.format(substring1, substring2, substring3)
