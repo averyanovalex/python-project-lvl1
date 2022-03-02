@@ -1,57 +1,35 @@
 """Engine for all games."""
 
-from typing import Callable
+import prompt
 
-from brain_games.cli import ask, print_text, welcome_user
-from brain_games.common import ROUNDS_COUNT
+ROUNDS_COUNT = 3
 
 
-def run_game(main_question: str, build_question: Callable) -> None:
+def run_game(game) -> None:
     """
-    Engine for all games.
-
-    This function implements common logic for any game.
+    Implement common logic for all games.
 
     Args:
-        main_question: question is displayed at the beginning of the game
-        build_question: function to build question and right answer
+        game: module with specific game's logic
     """
-    user_name = welcome_user()
+    print('Welcome to the Brain Games!')
+    user_name = prompt.string('May I have your name? ')
+    print(f'Hello, {user_name}!')
 
-    print_text(main_question)
+    print(game.MAIN_QUESTION)
 
     for _ in range(ROUNDS_COUNT):
-        question, right_answer = build_question()
+        question, right_answer = game.build_question_and_answer()
 
-        answer = ask(question)
-        correct = check_answer(answer, right_answer, user_name)
+        print(f'Question: {question}')
+        answer = prompt.string('Your answer: ', empty=True)
 
-        if not correct:
+        if answer == right_answer:
+            print('Correct!')
+        else:
+            template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
+            print(template.format(s1=answer, s2=right_answer))
+            print(f"Let's try again, {user_name}!")
             return
 
-    print_text('Congratulations, {0}!'.format(user_name))
-
-
-def check_answer(answer: str, right_answer: str, user_name: str) -> bool:
-    """
-    Check correct users's answer or not.
-
-    After checking, print message for user and return result.
-    If user's answer is correct return True, otherwise  False.
-
-    Args:
-        answer: user's answer
-        right_answer: correct answer
-        user_name: user's name
-
-    Returns:
-        bool
-    """
-    if answer == right_answer:
-        print_text('Correct!')
-        return True
-
-    template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
-    print_text(template.format(s1=answer, s2=right_answer))
-    print_text("Let's try again, {s1}!".format(s1=user_name))
-    return False
+    print(f'Congratulations, {user_name}!')

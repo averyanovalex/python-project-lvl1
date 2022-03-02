@@ -2,15 +2,7 @@
 
 from brain_games.common import generate_random_int
 
-
-def get_welcome_game_question() -> str:
-    """
-    Get welcome main game question to ask user at start.
-
-    Returns:
-        str
-    """
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".'
+MAIN_QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def build_question_and_answer() -> tuple:
@@ -41,8 +33,7 @@ def is_prime(number: int) -> bool:
     Returns:
         bool
     """
-    number = abs(number)
-    if number in {0, 1}:
+    if number < 2:
         return False
 
     for devisor in range(2, number // 2 + 1):
