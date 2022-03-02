@@ -7,15 +7,7 @@ PROGRESSION_LEN_MAX = 10
 PROGRESSION_START_ITEM_MAX = 9
 PROGRESSION_ITERATOR_MAX = 5
 
-
-def get_welcome_game_question() -> str:
-    """
-    Get welcome main game question to ask user at start.
-
-    Returns:
-        str
-    """
-    return 'What number is missing in the progression?'
+main_question = 'What number is missing in the progression?'
 
 
 def build_question_and_answer() -> tuple:

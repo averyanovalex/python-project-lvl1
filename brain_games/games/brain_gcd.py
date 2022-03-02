@@ -2,15 +2,7 @@
 
 from brain_games.common import generate_random_int
 
-
-def get_welcome_game_question() -> str:
-    """
-    Get welcome main game question to ask user at start.
-
-    Returns:
-        str
-    """
-    return 'Find the greatest common divisor of given numbers.'
+main_question = 'Find the greatest common divisor of given numbers.'
 
 
 def build_question_and_answer() -> tuple:

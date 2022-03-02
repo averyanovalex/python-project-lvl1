@@ -2,15 +2,7 @@
 
 from brain_games.common import generate_random_int
 
-
-def get_welcome_game_question() -> str:
-    """
-    Get welcome main game question to ask user at start.
-
-    Returns:
-        str
-    """
-    return 'Answer "yes" if the number is even, otherwise answer "no".'
+main_question = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def build_question_and_answer() -> tuple:
