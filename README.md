@@ -1,6 +1,7 @@
 [![Actions Status](https://github.com/averyanovalex/python-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/averyanovalex/python-project-lvl1/actions/workflows/hexlet-check.yml)
 [![example workflow](https://github.com/averyanovalex/python-project-lvl1/actions/workflows/ci.yml/badge.svg)](https://github.com/averyanovalex/python-project-lvl1/actions/workflows/ci.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/84b22322353efd16de48/maintainability)](https://codeclimate.com/github/averyanovalex/python-project-lvl1/maintainability)
+
 
 # Training project "Brain games" on hexlet.io
 
