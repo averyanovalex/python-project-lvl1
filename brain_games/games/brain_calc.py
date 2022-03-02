@@ -24,7 +24,7 @@ def build_question_and_answer() -> tuple:
 
     right_answer = str(function(number1, number2))
 
-    return '{0} {1} {2}'.format(number1, mark, number2), right_answer
+    return f'{number1} {mark} {number2}', right_answer
 
 
 def generate_random_math_operation() -> tuple:

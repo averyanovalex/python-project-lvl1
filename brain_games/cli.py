@@ -22,5 +22,5 @@ def welcome_user() -> str:
     """
     print_text('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
-    print_text('Hello, {name}!'.format(name=name))
+    print_text(f'Hello, {name}!')
     return name

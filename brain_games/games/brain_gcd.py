@@ -18,7 +18,7 @@ def build_question_and_answer() -> tuple:
     number1 = generate_random_int(only_positive=True)
     number2 = generate_random_int(only_positive=True)
 
-    question = '{0} {1}'.format(str(number1), str(number2))
+    question = f'{number1} {number2}'
     right_answer = str(calculate_gcd(number1, number2))
 
     return question, right_answer

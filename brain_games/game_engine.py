@@ -23,12 +23,12 @@ def run_game(game) -> None:
         if answer == right_answer:
             print_text('Correct!')
         else:
-            template = "'{0}' is wrong answer ;(. Correct answer was '{1}'."
-            print_text(template.format(answer, right_answer))
-            print_text("Let's try again, {0}!".format(user_name))
+            template = "'{s1}' is wrong answer ;(. Correct answer was '{s2}'."
+            print_text(template.format(s1=answer, s2=right_answer))
+            print_text(f"Let's try again, {user_name}!")
             return
 
-    print_text('Congratulations, {0}!'.format(user_name))
+    print_text(f'Congratulations, {user_name}!')
 
 
 def print_text(text: str) -> None:
@@ -50,7 +50,7 @@ def welcome_user() -> str:
     """
     print_text('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
-    print_text('Hello, {name}!'.format(name=name))
+    print_text(f'Hello, {name}!')
     return name
 
 
@@ -65,5 +65,5 @@ def ask(question: str) -> str:
         str
 
     """
-    print_text('Question: {0}'.format(question))
+    print_text(f'Question: {question}')
     return prompt.string('Your answer: ', empty=True)
