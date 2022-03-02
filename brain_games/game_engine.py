@@ -1,28 +1,23 @@
 """Engine for all games."""
 
-from typing import Callable
-
 import prompt
 
 ROUNDS_COUNT = 3
 
 
-def run_game(main_question: str, build_question: Callable) -> None:
+def run_game(game) -> None:
     """
-    Engine for all games.
-
-    This function implements common logic for any game.
+    Implement common logic for all games.
 
     Args:
-        main_question: question is displayed at the beginning of the game
-        build_question: function to build question and right answer
+        game: module with specific game's logic
     """
     user_name = welcome_user()
 
-    print_text(main_question)
+    print_text(game.get_welcome_game_question())
 
     for _ in range(ROUNDS_COUNT):
-        question, right_answer = build_question()
+        question, right_answer = game.build_question_and_answer()
 
         answer = ask(question)
         if answer == right_answer:
