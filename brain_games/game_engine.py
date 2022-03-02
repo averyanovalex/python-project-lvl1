@@ -19,7 +19,9 @@ def run_game(game) -> None:
     for _ in range(ROUNDS_COUNT):
         question, right_answer = game.build_question_and_answer()
 
-        answer = ask(question)
+        print_text(f'Question: {question}')
+        answer = prompt.string('Your answer: ', empty=True)
+
         if answer == right_answer:
             print_text('Correct!')
         else:
@@ -52,18 +54,3 @@ def welcome_user() -> str:
     name = prompt.string('May I have your name? ')
     print_text(f'Hello, {name}!')
     return name
-
-
-def ask(question: str) -> str:
-    """
-    Ask question and return user's answer.
-
-    Args:
-        question: question for user
-
-    Returns:
-        str
-
-    """
-    print_text(f'Question: {question}')
-    return prompt.string('Your answer: ', empty=True)
